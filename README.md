@@ -2,7 +2,7 @@
 
 > **Template profissional e cinematográfico para desenvolvimento acelerado de landing pages de altíssimo padrão estético, com suporte nativo a Skill do Google Antigravity para planejamento automatizado.**
 
-Este repositório serve como base de excelência e ponto de partida para a criação de novas landing pages comerciais, institucionais e de clínicas/escritórios, combinando arquitetura moderna, animações suaves e pipeline automatizada de mídia e deploy.
+Este repositório serve como base de excelência e ponto de partida neutro e genérico para a criação de novas landing pages comerciais, institucionais e de serviços de alto padrão, combinando arquitetura moderna, animações suaves, scripts de execução em 1 clique e pipeline automatizada de mídia e deploy.
 
 ---
 
@@ -14,14 +14,20 @@ Este repositório serve como base de excelência e ponto de partida para a cria�
 - **Swiper 11**: Carrossel responsivo de profissionais/produtos com arraste por toque, suporte a autoplay e pausas inteligentes.
 - **CSS Modular com Design Tokens**: Arquitetura CSS por camadas (`variables.css`, `reset.css`, `typography.css`, `components.css`), permitindo alterar toda a paleta visual em segundos através de variáveis CSS fluidas (`clamp()`).
 - **Automação de Mídias em Python**: Script inteligente (`scripts/process_media.py`) que varre logos SVG, otimiza fotos com Lanczos e Unsharp Mask, gera arquivos WebP com preservação de canal alfa e sincroniza o `favicon.svg`.
+- **Scripts de 1-Clique para Windows**:
+  - `iniciar-demo.bat`: Instala dependências, compila e abre o navegador automaticamente na demonstração local.
+  - `publicar-demo.bat`: Valida o build e envia as alterações diretamente para publicação no GitHub Pages.
 - **Pipeline CI/CD GitHub Pages**: Publicação automática a cada push através de GitHub Actions configurado em `.github/workflows/deploy.yml`.
 - **Skill Integrada**: `.agents/skills/landing-page-builder/SKILL.md` pronta para conduzir entrevistas de briefing completas e orquestrar o desenvolvimento via IA.
 
 ---
 
-## 🚀 Como Começar em 2 Minutos
+## 🚀 Como Executar a Demonstração Local
 
-### 1. Clonar e Instalar Dependências
+### Opção 1: Atalho Rápido de 1-Clique (Windows)
+Basta dar um duplo clique no arquivo **`iniciar-demo.bat`** na raiz do projeto. Ele cuidará da instalação, build e abrirá a página automaticamente no seu navegador padrão!
+
+### Opção 2: Via Terminal / NPM
 ```bash
 # Clone o repositório
 git clone git@github.com:Gabriel-mDias/sample-landing-page.git
@@ -29,13 +35,12 @@ cd sample-landing-page
 
 # Instale as dependências
 npm install
-```
 
-### 2. Rodar o Servidor de Desenvolvimento
-```bash
+# Inicie o servidor local com abertura automática do navegador
+npm run serve
+# ou para modo de desenvolvimento com HMR:
 npm run dev
 ```
-Acesse `http://localhost:5173` para visualizar a página em tempo real com Hot Module Replacement (HMR).
 
 ---
 
@@ -88,6 +93,10 @@ Para utilizá-la em um novo projeto:
 
 Para demonstrar a landing page ao cliente com link público gratuito e ultrarrápido:
 
+### Opção 1: Script de 1-Clique
+Execute o arquivo **`publicar-demo.bat`** no terminal ou com duplo clique.
+
+### Opção 2: Git Manual
 1. No seu repositório do GitHub, vá em **Settings** > **Pages**.
 2. Em **Build and deployment** > **Source**, selecione **GitHub Actions**.
 3. Realize um commit e envie para o GitHub:
@@ -141,6 +150,8 @@ sample-landing-page/
 │       ├── components.css               # Componentes reutilizáveis
 │       └── main.css                     # Importador de estilos
 ├── index.html                           # HTML semântico e estruturado
+├── iniciar-demo.bat                     # Launcher 1-clique para servidor local
+├── publicar-demo.bat                    # Script 1-clique para publicação no Pages
 ├── package.json                         # Dependências e scripts npm
 ├── vite.config.js                       # Configuração de build para o Pages
 └── README.md
