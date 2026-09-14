@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="237" viewBox="72 502 192 237" version="1.1" role="img" aria-labelledby="title description">
+  <title id="title">Essenza — Símbolo</title>
+  <desc id="description">Símbolo isolado, sem texto nem margens externas. Arte vetorial e gradiente preservados da referência original-com-espacamento-finalizado.svg.</desc>
+  <defs>
+    <linearGradient id="dourado" gradientUnits="userSpaceOnUse" x1="72" y1="535" x2="1182" y2="802">
+      <stop offset="0" stop-color="#a67d4e" />
+      <stop offset=".32" stop-color="#ae8657" />
+      <stop offset=".62" stop-color="#a77e4f" />
+      <stop offset="1" stop-color="#a57a49" />
+    </linearGradient>
+  </defs>
+  <g id="simbolo" fill="url(#dourado)">
+    <path id="barra-superior" d="M 93 502 L 264 502 L 264 513 L 93 513 Z" />
+    <path id="barra-esquerda" d="M 72 507 L 80 507 L 80 697 L 72 697 Z" />
+    <path id="moldura-exterior" d="M 236 568 L 244 568 L 244 739 L 72 739 L 72 712 L 80 712 L 80 731 L 236 731 Z" />
+    <path id="moldura-interior-superior" d="M 104.5 534 L 244 534 L 244 554 L 236 554 L 236 539.5 L 110 539.5 L 110 622 L 104.5 622 Z" />
+    <path id="moldura-interior-inferior" d="M 104.5 644 L 110 644 L 110 702 L 178 702 L 178 708 L 104.5 708 Z" />
+    <path id="espiral-direita" d="M 140 560 L 209 560 L 209 708 L 191 708 L 191 702 L 203 702 L 203 565.5 L 140 565.5 Z" />
+    <path id="espiral-esquerda" d="M 130 586 L 135 586 L 135 675.5 L 165 675.5 L 165 681 L 130 681 Z" />
+    <path id="nucleo" d="M 154 603 L 179 603 L 179 650 L 154 650 Z" />
+  </g>
+</svg>

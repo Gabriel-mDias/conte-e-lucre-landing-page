@@ -1,0 +1,20 @@
+{
+  "name": "sample-landing-page",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "process-media": "python scripts/process_media.py"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.20",
+    "swiper": "^11.2.5"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}
