@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 70" width="340" height="70" fill="none">
+  <defs>
+    <linearGradient id="goldGradientH" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="50%" stop-color="#b08a5a"/>
+      <stop offset="100%" stop-color="#755535"/>
+    </linearGradient>
+    <linearGradient id="goldLightH" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#faeed6"/>
+      <stop offset="100%" stop-color="#b08a5a"/>
+    </linearGradient>
+  </defs>
+  <!-- Símbolo -->
+  <g transform="translate(5, 5) scale(0.6)">
+    <polygon points="50,10 88,32 88,76 50,98 12,76 12,32" stroke="url(#goldGradientH)" stroke-width="3" fill="none" opacity="0.4"/>
+    <polygon points="50,20 80,38 80,72 50,90 20,72 20,38" fill="url(#goldGradientH)" fill-opacity="0.2" stroke="url(#goldGradientH)" stroke-width="2"/>
+    <polygon points="50,20 50,90 80,72 80,38" fill="url(#goldGradientH)" fill-opacity="0.3"/>
+    <circle cx="50" cy="50" r="10" fill="url(#goldLightH)"/>
+  </g>
+  <!-- Tipografia -->
+  <text x="80" y="42" font-family="'Cormorant Garamond', 'Georgia', serif" font-size="28" font-weight="600" letter-spacing="4" fill="#fcfbf9">LUMINA</text>
+  <text x="82" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="500" letter-spacing="3" fill="#b08a5a">STRATEGIC STUDIO</text>
+</svg>

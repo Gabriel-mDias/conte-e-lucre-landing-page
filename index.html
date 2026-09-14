@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Lumina — Soluções Estratégicas &amp; Design | Excelência em Consultoria</title>
+  <meta name="description" content="A Lumina reúne especialistas em estratégia, design de experiência e tecnologia em um modelo consultivo de alto padrão. Agende uma sessão estratégica.">
+  <meta name="author" content="G&amp;Ms Soluções Tecnológicas">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lumina — Soluções Estratégicas &amp; Design">
+  <meta property="og:description" content="Consultoria executiva e criação sob medida para empresas que buscam liderança de mercado.">
+  <meta property="og:image" content="assets/video/hero-poster.webp">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Tipografia Google Fonts (Cormorant Garamond & Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-dark">
+
+  <!-- ============================================================
+       NAVBAR FIXA COM GLASSMORPHISM
+       ============================================================ -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Lumina Soluções Estratégicas">
+        <img src="assets/logo/logo-horizontal.svg" alt="Lumina — Soluções Estratégicas" width="180" height="42">
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navegação Principal">
+        <a href="#sobre" class="nav-link">A Lumina</a>
+        <a href="#solucoes" class="nav-link">Soluções</a>
+        <a href="#equipe" class="nav-link">Liderança</a>
+        <a href="#localizacao" class="nav-link">Localização</a>
+        <a href="#contato" class="nav-link">Contato</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20estrat%C3%A9gica%20com%20a%20Lumina." target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btnNavAgendar">
+          <span>Sessão Estratégica</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         HERO SECTION CINEMATOGRÁFICO
+         ============================================================ -->
+    <section class="hero-section" id="hero">
+      <div class="hero-video-wrapper">
+        <img src="assets/video/hero-poster.webp" alt="Lumina Ambiente Estratégico" class="hero-video" style="object-fit: cover; width: 100%; height: 100%;">
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-subtitle-badge" data-reveal data-delay="0.1">
+          <span>Excelência &amp; Inovação Estratégica</span>
+        </div>
+
+        <h1 class="hero-title" data-reveal data-delay="0.2">
+          Lumina<br>
+          <span>Soluções Estratégicas</span>
+        </h1>
+
+        <p class="hero-desc" data-reveal data-delay="0.35">
+          Potencializamos negócios e experiências através da convergência entre inteligência estratégica, design de alto padrão e tecnologia de ponta.
+        </p>
+
+        <div class="hero-actions" data-reveal data-delay="0.5">
+          <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20estrat%C3%A9gica%20com%20a%20Lumina." target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btnHeroAgendar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Falar com Especialista</span>
+          </a>
+          <a href="#sobre" class="btn btn-outline-white" id="btnHeroSobre">
+            <span>Conhecer Metodologia</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="#sobre" class="hero-scroll-indicator" aria-label="Rolar para baixo">
+        <span>Explore</span>
+        <div class="hero-scroll-line"></div>
+      </a>
+    </section>
+
+    <!-- ============================================================
+         SEÇÃO SOBRE A EMPRESA
+         ============================================================ -->
+    <section class="about-section theme-light" id="sobre">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text" data-reveal>
+            <span class="section-tag">Nossa Abordagem</span>
+            <h2 class="section-title">
+              Consultoria executiva e visão sob medida para marcas que lideram seus mercados.
+            </h2>
+            <p>
+              A <strong>Lumina</strong> nasceu da convicção de que resultados exponenciais e sustentáveis exigem uma união indissociável entre governança analítica, sofisticação estética e engenharia de precisão.
+            </p>
+            <p>
+              Atuamos como conselheiros e executores estratégicos de lideranças e fundadores. Não entregamos soluções de prateleira: construímos arquiteturas operacionais e marcas memoráveis desenhadas sob medida para suas ambições.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <h4>Multidisciplinar</h4>
+                <p>Estratégia corporativa, design de experiência e tecnologia em sinergia contínua.</p>
+              </div>
+              <div class="highlight-item">
+                <h4>Alta Exclusividade</h4>
+                <p>Capacidade dedicada para garantir profundidade, agilidade e total sigilo.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-media-composition" data-reveal data-delay="0.2">
+            <div class="about-img-main">
+              <img src="assets/images/espaco-1.webp" alt="Espaço executivo Lumina" loading="lazy" width="540" height="675">
+            </div>
+            <div class="about-img-secondary">
+              <img src="assets/images/espaco-2.webp" alt="Sala de reuniões estratégicas Lumina" loading="lazy" width="360" height="360">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SEÇÃO PILARES DE SOLUÇÕES
+         ============================================================ -->
+    <section class="pillars-section theme-light" id="solucoes">
+      <div class="container">
+        <div class="section-header-center" data-reveal>
+          <span class="section-tag">Pilares Estratégicos</span>
+          <h2 class="section-title">Soluções integradas para impulsionar valor sustentável.</h2>
+          <p class="section-subtitle">
+            Três pilares fundamentais orquestrados por lideranças experientes para garantir diagnóstico preciso, execução ágil e crescimento consistente.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <!-- Pilar 1 -->
+          <article class="pillar-card" data-reveal data-delay="0.1">
+            <div>
+              <span class="pillar-number">01</span>
+              <h3>Estratégia Corporativa &amp; Gestão</h3>
+              <p>
+                Diagnóstico de maturidade organizacional, modelagem de negócios e estruturação de rotinas executivas com foco em rentabilidade.
+              </p>
+            </div>
+            <ul class="pillar-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Diagnósticos de Posicionamento</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Governança &amp; Eficiência Operacional</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Planejamento de Escala e M&amp;A</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Pilar 2 -->
+          <article class="pillar-card" data-reveal data-delay="0.2">
+            <div>
+              <span class="pillar-number">02</span>
+              <h3>Design de Experiência &amp; Marca</h3>
+              <p>
+                Construção de marcas icônicas, identidade visual refinada e interfaces digitais de alta conversão centradas no usuário.
+              </p>
+            </div>
+            <ul class="pillar-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Branding &amp; Narrativa Institucional</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>UI/UX &amp; Design Systems Cinematográficos</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Landing Pages de Alta Conversão</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Pilar 3 -->
+          <article class="pillar-card" data-reveal data-delay="0.3">
+            <div>
+              <span class="pillar-number">03</span>
+              <h3>Tecnologia &amp; Escala Digital</h3>
+              <p>
+                Arquitetura de software de última geração, automações de processos e esteiras de desenvolvimento preparadas para hipercrescimento.
+              </p>
+            </div>
+            <ul class="pillar-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Engenharia Front-end &amp; Back-end</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Pipelines CI/CD &amp; Infraestrutura Cloud</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Integração de Modelos de Inteligência Artificial</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SEÇÃO LIDERANÇA / ESPECIALISTAS (CARROSSEL HORIZONTAL)
+         ============================================================ -->
+    <section class="team-section theme-light" id="equipe">
+      <div class="container">
+        <div class="team-header-wrapper" data-reveal>
+          <div>
+            <span class="section-tag">Liderança Executiva</span>
+            <h2 class="section-title">Especialistas dedicados ao seu crescimento.</h2>
+            <p class="section-subtitle">
+              Profissionais seniores com sólida experiência de mercado e compromisso absoluto com excelência técnica.
+            </p>
+          </div>
+
+          <div class="team-nav-controls">
+            <button class="team-btn-prev" aria-label="Profissional Anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <button class="team-btn-next" aria-label="Próximo Profissional">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="swiper team-swiper" data-reveal data-delay="0.2">
+          <div class="swiper-wrapper">
+            <!-- 1. Helena Vasconcelos -->
+            <div class="swiper-slide">
+              <div class="team-card">
+                <div class="team-card-image">
+                  <span class="team-card-badge">Estratégia &amp; M&amp;A</span>
+                  <img src="assets/images/colaboradores/helena-vasconcelos.webp" alt="Helena Vasconcelos" loading="lazy" width="340" height="425">
+                </div>
+                <div class="team-card-body">
+                  <h3 class="team-card-title">Helena Vasconcelos</h3>
+                  <span class="team-card-specialty">Diretoria Executiva</span>
+                  <p class="team-card-desc">
+                    Liderança em estruturação corporativa, governança e alocação estratégica de capital para organizações em expansão.
+                  </p>
+                  <div class="team-card-footer">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="team-social-btn">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                      <span>LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Lucas Albuquerque -->
+            <div class="swiper-slide">
+              <div class="team-card">
+                <div class="team-card-image">
+                  <span class="team-card-badge">Head de Branding</span>
+                  <img src="assets/images/colaboradores/lucas-albuquerque.webp" alt="Lucas Albuquerque" loading="lazy" width="340" height="425">
+                </div>
+                <div class="team-card-body">
+                  <h3 class="team-card-title">Lucas Albuquerque</h3>
+                  <span class="team-card-specialty">Direção de Criação</span>
+                  <p class="team-card-desc">
+                    Criação de ecossistemas visuais memoráveis e narrativas de marca que conectam clientes aos mais elevados padrões do mercado.
+                  </p>
+                  <div class="team-card-footer">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="team-social-btn">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                      <span>LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Rafael Montenegro -->
+            <div class="swiper-slide">
+              <div class="team-card">
+                <div class="team-card-image">
+                  <span class="team-card-badge">Tech Lead</span>
+                  <img src="assets/images/colaboradores/rafael-montenegro.webp" alt="Rafael Montenegro" loading="lazy" width="340" height="425">
+                </div>
+                <div class="team-card-body">
+                  <h3 class="team-card-title">Rafael Montenegro</h3>
+                  <span class="team-card-specialty">Engenharia &amp; Inovação</span>
+                  <p class="team-card-desc">
+                    Arquiteto de soluções digitais de alta performance, esteiras de automação e integração de inteligência analítica.
+                  </p>
+                  <div class="team-card-footer">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="team-social-btn">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                      <span>LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Camila Brandão -->
+            <div class="swiper-slide">
+              <div class="team-card">
+                <div class="team-card-image">
+                  <span class="team-card-badge">Head de Operações</span>
+                  <img src="assets/images/colaboradores/camila-brandao.webp" alt="Camila Brandão" loading="lazy" width="340" height="425">
+                </div>
+                <div class="team-card-body">
+                  <h3 class="team-card-title">Camila Brandão</h3>
+                  <span class="team-card-specialty">Operações &amp; Clientes</span>
+                  <p class="team-card-desc">
+                    Garantia de conformidade, agilidade na entrega de projetos estratégicos e experiência do cliente de ponta a ponta.
+                  </p>
+                  <div class="team-card-footer">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="team-social-btn">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                      <span>LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SEÇÃO LOCALIZAÇÃO & ESPAÇO
+         ============================================================ -->
+    <section class="location-section" id="localizacao">
+      <div class="container">
+        <div class="location-grid">
+          <div class="location-card-info" data-reveal>
+            <div>
+              <span class="section-tag">Presença</span>
+              <h2 class="section-title">Sede estratégica, acessível e discreta.</h2>
+              <p class="section-subtitle">
+                Ambiente planejado para receber executivos e conselhos com total infraestrutura de videoconferência e privacidade.
+              </p>
+            </div>
+
+            <div class="info-box">
+              <div class="info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="info-text">
+                <h4>Endereço</h4>
+                <p>Av. Paulista, nº 1000 — Bela Vista<br>São Paulo, SP — Brasil</p>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <div class="info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="info-text">
+                <h4>Atendimento Executivo</h4>
+                <p>(11) 99999-9999<br>Segunda a Sexta-feira, 09h às 18h</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btnComoChegar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                <span>Abrir no Google Maps</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="location-map-wrapper" data-reveal data-delay="0.2">
+            <iframe 
+              src="https://www.google.com/maps?q=-23.5650,-46.6515&amp;hl=pt-BR&amp;z=15&amp;output=embed" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localização do Hub Executivo Lumina">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SEÇÃO CTA BANNER
+         ============================================================ -->
+    <section class="cta-banner-section" id="contato">
+      <div class="container cta-banner-content" data-reveal>
+        <span class="section-tag">Comece Agora</span>
+        <h2 class="section-title">Leve o seu negócio para o próximo patamar de valor.</h2>
+        <p>
+          Agende uma conversa estratégica com um de nossos diretores para analisar oportunidades e estruturar um plano sob medida.
+        </p>
+
+        <div class="cta-actions-group">
+          <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20estrat%C3%A9gica%20com%20a%20Lumina." target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btnCtaWhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span>Falar no WhatsApp Corporativo</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="btnCtaLinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            <span>Conectar no LinkedIn</span>
+          </a>
+          <a href="mailto:contato@lumina.com.br" class="btn btn-outline-white" id="btnCtaEmail">
+            <span>Enviar E-mail Institucional</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       RODAPÉ INSTITUCIONAL
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo/logo-horizontal.svg" alt="Lumina Soluções Estratégicas" width="160" height="42">
+          <p>
+            Consultoria executiva, design de experiência e engenharia digital de alto impacto. Soluções sob medida para marcas líderes.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navegação</h5>
+          <ul>
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#sobre">A Lumina</a></li>
+            <li><a href="#solucoes">Soluções</a></li>
+            <li><a href="#equipe">Liderança</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Canais Institucionais</h5>
+          <ul>
+            <li><a href="tel:5511999999999">(11) 99999-9999</a></li>
+            <li><a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">WhatsApp Corporativo</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">Página no LinkedIn</a></li>
+            <li><a href="mailto:contato@lumina.com.br">contato@lumina.com.br</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Lumina — Todos os direitos reservados.</p>
+        <div class="attribution-badge">
+          <span>Desenvolvido por</span>
+          <a href="https://gems.tec.br/" target="_blank" rel="noopener noreferrer" title="G&amp;Ms Soluções Tecnológicas">
+            G&amp;Ms Soluções Tecnológicas
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       BOTÃO FLUTUANTE WHATSAPP CONCIERGE
+       ============================================================ -->
+  <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20estrat%C3%A9gica%20com%20a%20Lumina." target="_blank" rel="noopener noreferrer" class="floating-whatsapp" id="btnFloatingWhatsApp" aria-label="Fale conosco no WhatsApp">
+    <div class="whatsapp-icon-circle">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </div>
+    <span>Falar no WhatsApp</span>
+  </a>
+
+  <!-- Script Principal -->
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

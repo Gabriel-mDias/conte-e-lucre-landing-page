@@ -1,0 +1,79 @@
+/* Tipografia Editorial e Hierarquia Visual */
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-badge);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.section-tag::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background-color: var(--color-gold);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-section-title);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.section-subtitle {
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+/* Modos de Texto por Seção */
+.theme-dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark-theme);
+}
+
+.theme-dark .section-title {
+  color: var(--text-dark-theme);
+}
+
+.theme-dark .section-subtitle {
+  color: var(--text-dark-theme-muted);
+}
+
+.theme-light {
+  background-color: var(--bg-light);
+  color: var(--text-light-theme);
+}
+
+.theme-light .section-title {
+  color: var(--text-light-theme);
+}
+
+.theme-light .section-subtitle {
+  color: var(--text-light-theme-muted);
+}
