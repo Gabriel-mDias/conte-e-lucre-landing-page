@@ -1,504 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-  <title>Lumina — Soluções Estratégicas &amp; Design | Excelência em Consultoria</title>
-  <meta name="description" content="A Lumina reúne especialistas em estratégia, design de experiência e tecnologia em um modelo consultivo de alto padrão. Agende uma sessão estratégica.">
-  <meta name="author" content="G&amp;Ms Soluções Tecnológicas">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conte &amp; Lucre | Assessoria e Gestão Financeira</title>
+  <meta name="description" content="Transformamos números em direção. Organize a gestão financeira e decida com clareza ao lado da Conte & Lucre.">
+  <meta name="author" content="Conte &amp; Lucre">
   <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph / Redes Sociais -->
+  <link rel="canonical" href="https://gabriel-mdias.github.io/sample-landing-page/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Lumina — Soluções Estratégicas &amp; Design">
-  <meta property="og:description" content="Consultoria executiva e criação sob medida para empresas que buscam liderança de mercado.">
-  <meta property="og:image" content="assets/video/hero-poster.webp">
   <meta property="og:locale" content="pt_BR">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-  <!-- Tipografia Google Fonts (Cormorant Garamond & Plus Jakarta Sans) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta property="og:site_name" content="Conte &amp; Lucre">
+  <meta property="og:title" content="Conte &amp; Lucre — Números que orientam decisões">
+  <meta property="og:description" content="Gestão consultiva e análise de indicadores para transformar o financeiro em direção para o crescimento.">
+  <meta property="og:url" content="https://gabriel-mdias.github.io/sample-landing-page/">
+  <meta property="og:image" content="https://gabriel-mdias.github.io/sample-landing-page/assets/images/colaboradores/socios-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vanessa Rezende Pianzola e Ruan Tonolli, sócios da Conte &amp; Lucre">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
-<body class="theme-dark">
-
-  <!-- ============================================================
-       NAVBAR FIXA COM GLASSMORPHISM
-       ============================================================ -->
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="#hero" class="brand-logo" aria-label="Lumina Soluções Estratégicas">
-        <img src="assets/logo/logo-horizontal.svg" alt="Lumina — Soluções Estratégicas" width="180" height="42">
+      <a href="#hero" class="brand-logo" aria-label="Conte &amp; Lucre — início">
+        <picture>
+          <source srcset="assets/logo/logo-signature.webp" type="image/webp">
+          <img src="assets/logo/logo-signature.png" alt="Conte &amp; Lucre" width="620" height="98">
+        </picture>
       </a>
-
-      <nav class="nav-links" id="navLinks" aria-label="Navegação Principal">
-        <a href="#sobre" class="nav-link">A Lumina</a>
-        <a href="#solucoes" class="nav-link">Soluções</a>
-        <a href="#equipe" class="nav-link">Liderança</a>
-        <a href="#localizacao" class="nav-link">Localização</a>
-        <a href="#contato" class="nav-link">Contato</a>
+      <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a><a href="#solucoes">O que fazemos</a><a href="#metodo">Como atuamos</a><a href="#lideranca">Sócios</a><a href="#insights">Conteúdos</a>
       </nav>
-
       <div class="nav-actions">
-        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20estrat%C3%A9gica%20com%20a%20Lumina." target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btnNavAgendar">
-          <span>Sessão Estratégica</span>
-        </a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <a class="btn btn-primary nav-cta" href="#diagnostico">Solicitar diagnóstico</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- ============================================================
-         HERO SECTION CINEMATOGRÁFICO
-         ============================================================ -->
-    <section class="hero-section" id="hero">
-      <div class="hero-video-wrapper">
-        <img src="assets/video/hero-poster.webp" alt="Lumina Ambiente Estratégico" class="hero-video" style="object-fit: cover; width: 100%; height: 100%;">
-        <div class="hero-overlay"></div>
+  <main id="conteudo">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <video autoplay loop muted playsinline poster="assets/video/hero-desktop-poster.webp" data-desktop-poster="assets/video/hero-desktop-poster.webp" data-mobile-poster="assets/video/hero-mobile-poster.webp">
+          <source media="(max-width: 767px)" src="assets/video/hero-mobile.mp4" type="video/mp4">
+          <source src="assets/video/hero-desktop.mp4" type="video/mp4">
+        </video>
       </div>
-
-      <div class="container hero-content">
-        <div class="hero-subtitle-badge" data-reveal data-delay="0.1">
-          <span>Excelência &amp; Inovação Estratégica</span>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow eyebrow-light">Consultoria &amp; assessoria financeira</span>
+          <h1 id="hero-title">Sua empresa está <em>progredindo</em> ou apenas movimentando dinheiro?</h1>
+          <p>Unimos gestão consultiva e análise de indicadores para transformar números em informações — e informações em decisões mais claras e seguras.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#diagnostico">Solicitar diagnóstico inicial</a>
+            <a class="text-link text-link-light" href="#sobre">Conhecer a Conte &amp; Lucre <span aria-hidden="true">↓</span></a>
+          </div>
         </div>
-
-        <h1 class="hero-title" data-reveal data-delay="0.2">
-          Lumina<br>
-          <span>Soluções Estratégicas</span>
-        </h1>
-
-        <p class="hero-desc" data-reveal data-delay="0.35">
-          Potencializamos negócios e experiências através da convergência entre inteligência estratégica, design de alto padrão e tecnologia de ponta.
-        </p>
-
-        <div class="hero-actions" data-reveal data-delay="0.5">
-          <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20estrat%C3%A9gica%20com%20a%20Lumina." target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btnHeroAgendar">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            <span>Falar com Especialista</span>
-          </a>
-          <a href="#sobre" class="btn btn-outline-white" id="btnHeroSobre">
-            <span>Conhecer Metodologia</span>
-          </a>
-        </div>
+        <p class="hero-signature"><span>Gestão com propósito</span>Controle · Estratégia · Resultado</p>
       </div>
-
-      <a href="#sobre" class="hero-scroll-indicator" aria-label="Rolar para baixo">
-        <span>Explore</span>
-        <div class="hero-scroll-line"></div>
-      </a>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO SOBRE A EMPRESA
-         ============================================================ -->
-    <section class="about-section theme-light" id="sobre">
+    <section class="trust-strip" aria-label="Compromissos da Conte &amp; Lucre">
+      <div class="container trust-grid">
+        <div><span>01</span><strong>Organização</strong><p>Processos que dão consistência à rotina.</p></div>
+        <div><span>02</span><strong>Análise</strong><p>Indicadores traduzidos para a realidade.</p></div>
+        <div><span>03</span><strong>Estratégia</strong><p>Direção para escolhas mais conscientes.</p></div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="sobre" aria-labelledby="sobre-title">
+      <div class="container about-grid">
+        <div class="about-copy" data-reveal>
+          <span class="eyebrow">Somos a Conte &amp; Lucre</span>
+          <h2 id="sobre-title">Boas vendas movem uma empresa. <em>Boas decisões</em> fazem ela avançar.</h2>
+          <p class="lead">Transformamos números em informações que ajudam empresários a enxergar a realidade do negócio, organizar a gestão financeira e decidir com clareza e segurança.</p>
+          <p>Com Vanessa e Ruan à frente da Conte &amp; Lucre, unimos duas perspectivas complementares: um olhar consultivo sobre a gestão e uma visão analítica dos números e indicadores.</p>
+          <p>Não queremos apenas organizar o financeiro da sua empresa. Queremos que ele se torne uma ferramenta para o crescimento.</p>
+        </div>
+        <figure class="duo-portrait" data-reveal data-delay="0.12">
+          <div class="duo-frame">
+            <picture>
+              <source type="image/webp" srcset="assets/images/colaboradores/socios-480.webp 480w, assets/images/colaboradores/socios-720.webp 720w, assets/images/colaboradores/socios-1080.webp 1080w" sizes="(max-width: 760px) 92vw, 43vw">
+              <img src="assets/images/colaboradores/socios-1080.jpg" alt="Vanessa Rezende Pianzola e Ruan Tonolli, sócios da Conte &amp; Lucre" width="1080" height="1350" loading="lazy">
+            </picture>
+          </div>
+          <figcaption><span>Perspectivas complementares</span>Gestão consultiva + inteligência analítica</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <aside class="impact-statement" aria-label="Reflexão"><div class="container" data-reveal><p>Sua empresa vende. Mas os números mostram que ela está <em>realmente crescendo?</em></p></div></aside>
+
+    <section class="section section-paper benefits" aria-labelledby="beneficios-title">
       <div class="container">
-        <div class="about-grid">
-          <div class="about-text" data-reveal>
-            <span class="section-tag">Nossa Abordagem</span>
-            <h2 class="section-title">
-              Consultoria executiva e visão sob medida para marcas que lideram seus mercados.
-            </h2>
-            <p>
-              A <strong>Lumina</strong> nasceu da convicção de que resultados exponenciais e sustentáveis exigem uma união indissociável entre governança analítica, sofisticação estética e engenharia de precisão.
-            </p>
-            <p>
-              Atuamos como conselheiros e executores estratégicos de lideranças e fundadores. Não entregamos soluções de prateleira: construímos arquiteturas operacionais e marcas memoráveis desenhadas sob medida para suas ambições.
-            </p>
-
-            <div class="about-highlights">
-              <div class="highlight-item">
-                <h4>Multidisciplinar</h4>
-                <p>Estratégia corporativa, design de experiência e tecnologia em sinergia contínua.</p>
-              </div>
-              <div class="highlight-item">
-                <h4>Alta Exclusividade</h4>
-                <p>Capacidade dedicada para garantir profundidade, agilidade e total sigilo.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-media-composition" data-reveal data-delay="0.2">
-            <div class="about-img-main">
-              <img src="assets/images/espaco-1.webp" alt="Espaço executivo Lumina" loading="lazy" width="540" height="675">
-            </div>
-            <div class="about-img-secondary">
-              <img src="assets/images/espaco-2.webp" alt="Sala de reuniões estratégicas Lumina" loading="lazy" width="360" height="360">
-            </div>
-          </div>
+        <div class="section-intro" data-reveal><span class="eyebrow">Por que contratar uma assessoria financeira?</span><h2 id="beneficios-title">Menos incerteza. Mais direção para o seu dinheiro.</h2></div>
+        <div class="benefit-grid">
+          <article class="benefit-card" data-reveal><span>01</span><h3>Clareza total</h3><p>Uma visão real e detalhada das finanças para você saber para onde o dinheiro está indo e deixar de gerir no escuro.</p></article>
+          <article class="benefit-card" data-reveal data-delay="0.08"><span>02</span><h3>Planejamento que gera crescimento</h3><p>Metas, prioridades e investimentos conectados à realidade para o dinheiro trabalhar a favor dos seus objetivos.</p></article>
+          <article class="benefit-card" data-reveal data-delay="0.16"><span>03</span><h3>Paz mental e decisões seguras</h3><p>Menos impulsos e improvisos. Mais confiança para fazer escolhas conscientes, baseadas em números e estratégia.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO PILARES DE SOLUÇÕES
-         ============================================================ -->
-    <section class="pillars-section theme-light" id="solucoes">
+    <section class="section section-light" id="solucoes" aria-labelledby="solucoes-title">
       <div class="container">
-        <div class="section-header-center" data-reveal>
-          <span class="section-tag">Pilares Estratégicos</span>
-          <h2 class="section-title">Soluções integradas para impulsionar valor sustentável.</h2>
-          <p class="section-subtitle">
-            Três pilares fundamentais orquestrados por lideranças experientes para garantir diagnóstico preciso, execução ágil e crescimento consistente.
-          </p>
-        </div>
-
-        <div class="pillars-grid">
-          <!-- Pilar 1 -->
-          <article class="pillar-card" data-reveal data-delay="0.1">
-            <div>
-              <span class="pillar-number">01</span>
-              <h3>Estratégia Corporativa &amp; Gestão</h3>
-              <p>
-                Diagnóstico de maturidade organizacional, modelagem de negócios e estruturação de rotinas executivas com foco em rentabilidade.
-              </p>
-            </div>
-            <ul class="pillar-list">
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Diagnósticos de Posicionamento</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Governança &amp; Eficiência Operacional</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Planejamento de Escala e M&amp;A</span>
-              </li>
-            </ul>
-          </article>
-
-          <!-- Pilar 2 -->
-          <article class="pillar-card" data-reveal data-delay="0.2">
-            <div>
-              <span class="pillar-number">02</span>
-              <h3>Design de Experiência &amp; Marca</h3>
-              <p>
-                Construção de marcas icônicas, identidade visual refinada e interfaces digitais de alta conversão centradas no usuário.
-              </p>
-            </div>
-            <ul class="pillar-list">
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Branding &amp; Narrativa Institucional</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>UI/UX &amp; Design Systems Cinematográficos</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Landing Pages de Alta Conversão</span>
-              </li>
-            </ul>
-          </article>
-
-          <!-- Pilar 3 -->
-          <article class="pillar-card" data-reveal data-delay="0.3">
-            <div>
-              <span class="pillar-number">03</span>
-              <h3>Tecnologia &amp; Escala Digital</h3>
-              <p>
-                Arquitetura de software de última geração, automações de processos e esteiras de desenvolvimento preparadas para hipercrescimento.
-              </p>
-            </div>
-            <ul class="pillar-list">
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Engenharia Front-end &amp; Back-end</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Pipelines CI/CD &amp; Infraestrutura Cloud</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Integração de Modelos de Inteligência Artificial</span>
-              </li>
-            </ul>
-          </article>
+        <div class="section-intro split-intro" data-reveal><div><span class="eyebrow">O que fazemos</span><h2 id="solucoes-title">Transformamos números em decisões.</h2></div><p>Ajudamos empresários a entender a realidade financeira, organizar a gestão e agir com base em dados, não em achismos.</p></div>
+        <div class="service-list">
+          <article class="service-card" data-reveal><span class="service-number">01</span><div><p class="service-kicker">Rotina estruturada</p><h3>BPO Financeiro</h3></div><p>Organização de contas a pagar e receber, conciliação, documentos e acompanhamento contínuo do fluxo de caixa.</p><ul><li>Processos consistentes</li><li>Visibilidade de compromissos</li><li>Mais tempo para liderar</li></ul></article>
+          <article class="service-card" data-reveal data-delay="0.08"><span class="service-number">02</span><div><p class="service-kicker">Leitura do negócio</p><h3>Consultoria Financeira</h3></div><p>Análise de custos, margens, indicadores e resultados para identificar problemas, oportunidades e prioridades.</p><ul><li>Diagnóstico com contexto</li><li>Plano de ação possível</li><li>Acompanhamento da evolução</li></ul></article>
+          <article class="service-card" data-reveal data-delay="0.16"><span class="service-number">03</span><div><p class="service-kicker">Relações mais claras</p><h3>Finanças para Sócios</h3></div><p>Estruturação da relação entre pessoa física e jurídica para empresas familiares e casais que empreendem juntos.</p><ul><li>Separação de recursos</li><li>Critérios para retiradas</li><li>Objetivos compartilhados</li></ul></article>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO LIDERANÇA / ESPECIALISTAS (CARROSSEL HORIZONTAL)
-         ============================================================ -->
-    <section class="team-section theme-light" id="equipe">
+    <section class="section section-dark" id="metodo" aria-labelledby="metodo-title">
+      <div class="container method-layout">
+        <div class="method-heading" data-reveal><span class="eyebrow eyebrow-light">Como atuamos</span><h2 id="metodo-title">Organização, análise e estratégia transformam números em <em>direção.</em></h2><p>Gestão financeira vai além do operacional. Acompanhamos indicadores, fluxo de caixa, custos, margens e resultados para apoiar decisões mais seguras.</p><a class="text-link text-link-light" href="#diagnostico">Conversar sobre meu cenário <span aria-hidden="true">→</span></a></div>
+        <ol class="method-steps">
+          <li data-reveal><span>01</span><div><h3>Diagnóstico</h3><p>Entendemos a rotina, os gargalos, as informações disponíveis e os objetivos da liderança.</p></div></li>
+          <li data-reveal><span>02</span><div><h3>Estruturação</h3><p>Definimos processos, responsabilidades, calendário e a forma mais clara de acompanhar.</p></div></li>
+          <li data-reveal><span>03</span><div><h3>Operação e análise</h3><p>Organizamos a rotina e lemos os indicadores que revelam riscos e oportunidades.</p></div></li>
+          <li data-reveal><span>04</span><div><h3>Decisão e evolução</h3><p>Traduzimos o cenário em prioridades e próximos passos para o negócio.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <aside class="editorial-transition"><div class="container" data-reveal><span>Uma mudança de perspectiva</span><p>Organizar o dinheiro não muda só os números. <em>Muda as decisões.</em></p></div></aside>
+
+    <section class="section section-light" id="lideranca" aria-labelledby="lideranca-title">
       <div class="container">
-        <div class="team-header-wrapper" data-reveal>
-          <div>
-            <span class="section-tag">Liderança Executiva</span>
-            <h2 class="section-title">Especialistas dedicados ao seu crescimento.</h2>
-            <p class="section-subtitle">
-              Profissionais seniores com sólida experiência de mercado e compromisso absoluto com excelência técnica.
-            </p>
-          </div>
-
-          <div class="team-nav-controls">
-            <button class="team-btn-prev" aria-label="Profissional Anterior">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            </button>
-            <button class="team-btn-next" aria-label="Próximo Profissional">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </div>
+        <div class="section-intro leadership-intro" data-reveal><span class="eyebrow">À frente da Conte &amp; Lucre</span><h2 id="lideranca-title">Duas perspectivas. Uma direção.</h2><p>Olhar para a gestão e compreender os indicadores são partes da mesma decisão.</p></div>
+        <div class="partners-grid">
+          <article class="partner-card" data-reveal>
+            <figure class="partner-portrait partner-vanessa"><picture><source type="image/webp" srcset="assets/images/colaboradores/vanessa-480.webp 480w, assets/images/colaboradores/vanessa-720.webp 720w, assets/images/colaboradores/vanessa-1080.webp 1080w" sizes="(max-width: 760px) 90vw, 42vw"><img src="assets/images/colaboradores/vanessa-1080.png" alt="Retrato de Vanessa Rezende Pianzola" width="1080" height="1349" loading="lazy"></picture></figure>
+            <div class="partner-copy"><span>Olhar consultivo sobre a gestão</span><h3>Vanessa Rezende Pianzola</h3><p>Conecta a organização financeira à realidade de quem conduz a empresa, traduzindo desafios em prioridades claras e caminhos possíveis.</p></div>
+          </article>
+          <article class="partner-card" data-reveal data-delay="0.1">
+            <figure class="partner-portrait partner-ruan"><picture><source type="image/webp" srcset="assets/images/colaboradores/ruan-480.webp 480w, assets/images/colaboradores/ruan-720.webp 720w, assets/images/colaboradores/ruan-1080.webp 1080w" sizes="(max-width: 760px) 90vw, 42vw"><img src="assets/images/colaboradores/ruan-1080.png" alt="Retrato de Ruan Tonolli" width="1080" height="1440" loading="lazy"></picture></figure>
+            <div class="partner-copy"><span>Visão analítica de números e indicadores</span><h3>Ruan Tonolli</h3><p>Aprofunda a leitura dos dados para tornar custos, margens, fluxo de caixa e resultados mais compreensíveis na tomada de decisão.</p></div>
+          </article>
         </div>
+        <div class="institutional-cta" data-reveal><p>O que impede o crescimento nem sempre é a falta de dinheiro. Muitas vezes, é a falta de direção.</p><a class="btn btn-outline" href="#diagnostico">Falar com a Conte &amp; Lucre</a></div>
+      </div>
+    </section>
 
-        <div class="swiper team-swiper" data-reveal data-delay="0.2">
+    <section class="section section-paper" id="insights" aria-labelledby="insights-title">
+      <div class="container">
+        <div class="section-intro split-intro" data-reveal><div><span class="eyebrow">Conteúdos para decisões mais conscientes</span><h2 id="insights-title">Leituras para colocar o financeiro em perspectiva.</h2></div><p>Selecione um conteúdo para abrir todas as páginas e navegar pela publicação completa.</p></div>
+        <div class="content-carousel swiper" data-content-carousel data-reveal aria-label="Carrossel de conteúdos da Conte & Lucre">
           <div class="swiper-wrapper">
-            <!-- 1. Helena Vasconcelos -->
-            <div class="swiper-slide">
-              <div class="team-card">
-                <div class="team-card-image">
-                  <span class="team-card-badge">Estratégia &amp; M&amp;A</span>
-                  <img src="assets/images/colaboradores/helena-vasconcelos.webp" alt="Helena Vasconcelos" loading="lazy" width="340" height="425">
-                </div>
-                <div class="team-card-body">
-                  <h3 class="team-card-title">Helena Vasconcelos</h3>
-                  <span class="team-card-specialty">Diretoria Executiva</span>
-                  <p class="team-card-desc">
-                    Liderança em estruturação corporativa, governança e alocação estratégica de capital para organizações em expansão.
-                  </p>
-                  <div class="team-card-footer">
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="team-social-btn">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                      <span>LinkedIn</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 2. Lucas Albuquerque -->
-            <div class="swiper-slide">
-              <div class="team-card">
-                <div class="team-card-image">
-                  <span class="team-card-badge">Head de Branding</span>
-                  <img src="assets/images/colaboradores/lucas-albuquerque.webp" alt="Lucas Albuquerque" loading="lazy" width="340" height="425">
-                </div>
-                <div class="team-card-body">
-                  <h3 class="team-card-title">Lucas Albuquerque</h3>
-                  <span class="team-card-specialty">Direção de Criação</span>
-                  <p class="team-card-desc">
-                    Criação de ecossistemas visuais memoráveis e narrativas de marca que conectam clientes aos mais elevados padrões do mercado.
-                  </p>
-                  <div class="team-card-footer">
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="team-social-btn">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                      <span>LinkedIn</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 3. Rafael Montenegro -->
-            <div class="swiper-slide">
-              <div class="team-card">
-                <div class="team-card-image">
-                  <span class="team-card-badge">Tech Lead</span>
-                  <img src="assets/images/colaboradores/rafael-montenegro.webp" alt="Rafael Montenegro" loading="lazy" width="340" height="425">
-                </div>
-                <div class="team-card-body">
-                  <h3 class="team-card-title">Rafael Montenegro</h3>
-                  <span class="team-card-specialty">Engenharia &amp; Inovação</span>
-                  <p class="team-card-desc">
-                    Arquiteto de soluções digitais de alta performance, esteiras de automação e integração de inteligência analítica.
-                  </p>
-                  <div class="team-card-footer">
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="team-social-btn">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                      <span>LinkedIn</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 4. Camila Brandão -->
-            <div class="swiper-slide">
-              <div class="team-card">
-                <div class="team-card-image">
-                  <span class="team-card-badge">Head de Operações</span>
-                  <img src="assets/images/colaboradores/camila-brandao.webp" alt="Camila Brandão" loading="lazy" width="340" height="425">
-                </div>
-                <div class="team-card-body">
-                  <h3 class="team-card-title">Camila Brandão</h3>
-                  <span class="team-card-specialty">Operações &amp; Clientes</span>
-                  <p class="team-card-desc">
-                    Garantia de conformidade, agilidade na entrega de projetos estratégicos e experiência do cliente de ponta a ponta.
-                  </p>
-                  <div class="team-card-footer">
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="team-social-btn">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                      <span>LinkedIn</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <article class="swiper-slide content-card">
+              <button type="button" class="content-open" data-post="post-1" aria-label="Abrir conteúdo completo: o custo do descontrole financeiro">
+                <picture><source type="image/webp" srcset="assets/images/posts/post_1_pag_1-540.webp 540w, assets/images/posts/post_1_pag_1-1080.webp 1080w" sizes="(max-width: 560px) 84vw, 390px"><img src="assets/images/posts/post_1_pag_1-1080.jpg" alt="Capa da publicação sobre as consequências do descontrole financeiro" width="1080" height="1350" loading="lazy"></picture>
+                <span class="content-pages">4 páginas</span><span class="content-category">Controle financeiro</span><h3>O custo de viver sem planejamento</h3><p>A ausência de controle afeta escolhas, sonhos e a tranquilidade para lidar com imprevistos.</p><span class="content-link">Ler publicação <i aria-hidden="true">↗</i></span>
+              </button>
+            </article>
+            <article class="swiper-slide content-card">
+              <button type="button" class="content-open" data-post="post-2" aria-label="Abrir conteúdo completo: cinco dicas para sair do vermelho">
+                <picture><source type="image/webp" srcset="assets/images/posts/post_2_pag_unica-540.webp 540w, assets/images/posts/post_2_pag_unica-1080.webp 1080w" sizes="(max-width: 560px) 84vw, 390px"><img src="assets/images/posts/post_2_pag_unica-1080.jpg" alt="Capa da publicação com cinco dicas para sair do vermelho" width="1080" height="1350" loading="lazy"></picture>
+                <span class="content-pages">Leitura única</span><span class="content-category">Organização</span><h3>Cinco passos para sair do vermelho</h3><p>Encarar a realidade, registrar gastos e construir metas possíveis: não é mágica, é método.</p><span class="content-link">Ler publicação <i aria-hidden="true">↗</i></span>
+              </button>
+            </article>
+            <article class="swiper-slide content-card">
+              <button type="button" class="content-open" data-post="post-4" aria-label="Abrir conteúdo completo: movimento não é progresso">
+                <picture><source type="image/webp" srcset="assets/images/posts/post_4_pag_1-540.webp 540w, assets/images/posts/post_4_pag_1-1080.webp 1080w" sizes="(max-width: 560px) 84vw, 390px"><img src="assets/images/posts/post_4_pag_1-1080.jpg" alt="Capa da publicação: sua empresa está progredindo ou apenas movimentando dinheiro?" width="1080" height="1350" loading="lazy"></picture>
+                <span class="content-pages">5 páginas</span><span class="content-category">Estratégia</span><h3>Nem todo movimento significa progresso</h3><p>Sem direção, o dinheiro apenas circula. Com planejamento, ele constrói.</p><span class="content-link">Ler publicação <i aria-hidden="true">↗</i></span>
+              </button>
+            </article>
           </div>
+          <div class="carousel-footer"><div class="content-pagination" aria-label="Selecione um slide"></div><div class="carousel-buttons"><button class="carousel-prev" type="button" aria-label="Conteúdo anterior">←</button><button class="carousel-next" type="button" aria-label="Próximo conteúdo">→</button></div></div>
+        </div>
+        <a class="instagram-link" href="https://www.instagram.com/conteelucre/" target="_blank" rel="noopener noreferrer">Ver mais conteúdos no Instagram <span>@conteelucre ↗</span></a>
+      </div>
+    </section>
+
+    <section class="section testimonials" id="depoimentos" aria-labelledby="depoimentos-title">
+      <div class="container testimonial-grid">
+        <div class="testimonial-heading" data-reveal><span class="eyebrow eyebrow-light">Experiências compartilhadas</span><h2 id="depoimentos-title">Clareza que transforma a relação com o financeiro.</h2><p>Relatos de quem passou a enxergar os números com mais segurança e direção.</p></div>
+        <div class="testimonial-cards">
+          <figure class="quote-card" data-reveal><div class="stars" aria-label="5 de 5 estrelas">★★★★★</div><blockquote>“Vanessa, você foi a melhor coisa que aconteceu na Vincis. Estávamos perdidos, sem saber para onde o dinheiro estava indo...”</blockquote><figcaption>Feedback de cliente da consultoria</figcaption></figure>
+          <figure class="quote-card" data-reveal data-delay="0.08"><div class="stars" aria-label="5 de 5 estrelas">★★★★★</div><blockquote>“Eu amo a consultoria. É muito importante para mim, que não entendo nada de finanças. Ter alguém para me orientar é essencial. Acho que não consigo ficar sem mais.”</blockquote><figcaption>Feedback de cliente da consultoria</figcaption></figure>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO LOCALIZAÇÃO & ESPAÇO
-         ============================================================ -->
-    <section class="location-section" id="localizacao">
-      <div class="container">
-        <div class="location-grid">
-          <div class="location-card-info" data-reveal>
-            <div>
-              <span class="section-tag">Presença</span>
-              <h2 class="section-title">Sede estratégica, acessível e discreta.</h2>
-              <p class="section-subtitle">
-                Ambiente planejado para receber executivos e conselhos com total infraestrutura de videoconferência e privacidade.
-              </p>
-            </div>
+    <section class="section section-dark diagnostic" id="diagnostico" aria-labelledby="diagnostico-title">
+      <div class="container diagnostic-grid">
+        <div class="diagnostic-copy" data-reveal><span class="eyebrow eyebrow-light">Primeiro passo</span><h2 id="diagnostico-title">Vamos entender o momento financeiro do seu negócio?</h2><p>Conte brevemente seu cenário. Ao enviar, abriremos uma mensagem no WhatsApp para você revisar e iniciar a conversa com a Conte &amp; Lucre.</p><div class="privacy-note"><span aria-hidden="true">◇</span><p>As informações ficam no seu navegador e só seguem quando você confirma o envio pelo WhatsApp.</p></div></div>
+        <form id="formDiagnostico" class="diagnostic-form" data-reveal data-delay="0.12">
+          <div class="field-row"><div class="field"><label for="diagNome">Seu nome</label><input id="diagNome" name="nome" type="text" autocomplete="name" required placeholder="Como podemos chamar você?"></div><div class="field"><label for="diagEmpresa">Empresa ou segmento</label><input id="diagEmpresa" name="empresa" type="text" autocomplete="organization" required placeholder="Ex.: comércio, clínica, serviços"></div></div>
+          <div class="field-row"><div class="field"><label for="diagFaturamento">Faturamento médio mensal</label><select id="diagFaturamento" name="faturamento" required><option value="" selected disabled>Selecione uma faixa</option><option>Até R$ 30 mil</option><option>De R$ 30 mil a R$ 100 mil</option><option>De R$ 100 mil a R$ 300 mil</option><option>Acima de R$ 300 mil</option><option>Prefiro conversar primeiro</option></select></div><div class="field"><label for="diagDesafio">Principal desafio hoje</label><select id="diagDesafio" name="desafio" required><option value="" selected disabled>Selecione uma opção</option><option>Falta de tempo para a rotina financeira</option><option>Contas pessoais e empresariais misturadas</option><option>Pouca clareza sobre caixa e resultado</option><option>Dificuldade com preços e margens</option><option>Alinhamento entre sócios ou família</option><option>Outro desafio</option></select></div></div>
+          <button class="btn btn-primary btn-submit" type="submit">Continuar pelo WhatsApp <span aria-hidden="true">↗</span></button>
+        </form>
+      </div>
+    </section>
 
-            <div class="info-box">
-              <div class="info-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              </div>
-              <div class="info-text">
-                <h4>Endereço</h4>
-                <p>Av. Paulista, nº 1000 — Bela Vista<br>São Paulo, SP — Brasil</p>
-              </div>
-            </div>
-
-            <div class="info-box">
-              <div class="info-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              </div>
-              <div class="info-text">
-                <h4>Atendimento Executivo</h4>
-                <p>(11) 99999-9999<br>Segunda a Sexta-feira, 09h às 18h</p>
-              </div>
-            </div>
-
-            <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btnComoChegar">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-                <span>Abrir no Google Maps</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="location-map-wrapper" data-reveal data-delay="0.2">
-            <iframe 
-              src="https://www.google.com/maps?q=-23.5650,-46.6515&amp;hl=pt-BR&amp;z=15&amp;output=embed" 
-              width="100%" 
-              height="100%" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Localização do Hub Executivo Lumina">
-            </iframe>
-          </div>
+    <section class="section section-light" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-layout">
+        <div data-reveal><span class="eyebrow">Dúvidas frequentes</span><h2 id="faq-title">Transparência antes de começar.</h2><p>O formato final do trabalho é definido depois de entendermos a sua operação.</p></div>
+        <div class="faq-list" data-reveal data-delay="0.1">
+          <article class="faq-item"><h3><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1"><span>Como são tratados o acesso e a confidencialidade?</span><i aria-hidden="true"></i></button></h3><div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden><p>As necessidades de acesso, responsabilidades e aprovações são combinadas conforme a rotina da empresa, com processos definidos, permissões adequadas e comunicação clara.</p></div></article>
+          <article class="faq-item"><h3><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2"><span>Existe faturamento mínimo para contratar?</span><i aria-hidden="true"></i></button></h3><div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden><p>O enquadramento depende mais do volume e da complexidade da operação do que de um único número. O diagnóstico identifica qual formato faz sentido.</p></div></article>
+          <article class="faq-item"><h3><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3"><span>Preciso trocar de sistema ou de banco?</span><i aria-hidden="true"></i></button></h3><div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden><p>Não necessariamente. As ferramentas atuais são avaliadas antes de qualquer recomendação e mudanças só entram quando ajudam a simplificar.</p></div></article>
+          <article class="faq-item"><h3><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4"><span>Em quanto tempo a organização começa a aparecer?</span><i aria-hidden="true"></i></button></h3><div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden><p>O prazo varia conforme o histórico, a qualidade das informações e o volume de rotinas. Depois do diagnóstico, apresentamos etapas compatíveis com o cenário.</p></div></article>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO CTA BANNER
-         ============================================================ -->
-    <section class="cta-banner-section" id="contato">
-      <div class="container cta-banner-content" data-reveal>
-        <span class="section-tag">Comece Agora</span>
-        <h2 class="section-title">Leve o seu negócio para o próximo patamar de valor.</h2>
-        <p>
-          Agende uma conversa estratégica com um de nossos diretores para analisar oportunidades e estruturar um plano sob medida.
-        </p>
-
-        <div class="cta-actions-group">
-          <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20estrat%C3%A9gica%20com%20a%20Lumina." target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btnCtaWhatsApp">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-            <span>Falar no WhatsApp Corporativo</span>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="btnCtaLinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-            <span>Conectar no LinkedIn</span>
-          </a>
-          <a href="mailto:contato@lumina.com.br" class="btn btn-outline-white" id="btnCtaEmail">
-            <span>Enviar E-mail Institucional</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <section class="contact-band" id="contato" aria-labelledby="contato-title"><div class="container contact-grid"><div><span class="eyebrow eyebrow-light">Presença próxima, atendimento amplo</span><h2 id="contato-title">De Venda Nova do Imigrante para negócios em todo o Brasil.</h2></div><div class="contact-details"><p><span>WhatsApp</span><a href="https://wa.me/5527998844331" target="_blank" rel="noopener noreferrer">+55 (27) 99884-4331</a></p><p><span>E-mail</span><a href="mailto:conteelucre@gmail.com">conteelucre@gmail.com</a></p><p><span>Instagram</span><a href="https://www.instagram.com/conteelucre/" target="_blank" rel="noopener noreferrer">@conteelucre</a></p></div></div></section>
   </main>
 
-  <!-- ============================================================
-       RODAPÉ INSTITUCIONAL
-       ============================================================ -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <img src="assets/logo/logo-horizontal.svg" alt="Lumina Soluções Estratégicas" width="160" height="42">
-          <p>
-            Consultoria executiva, design de experiência e engenharia digital de alto impacto. Soluções sob medida para marcas líderes.
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h5>Navegação</h5>
-          <ul>
-            <li><a href="#hero">Início</a></li>
-            <li><a href="#sobre">A Lumina</a></li>
-            <li><a href="#solucoes">Soluções</a></li>
-            <li><a href="#equipe">Liderança</a></li>
-            <li><a href="#localizacao">Localização</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5>Canais Institucionais</h5>
-          <ul>
-            <li><a href="tel:5511999999999">(11) 99999-9999</a></li>
-            <li><a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">WhatsApp Corporativo</a></li>
-            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">Página no LinkedIn</a></li>
-            <li><a href="mailto:contato@lumina.com.br">contato@lumina.com.br</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>© 2026 Lumina — Todos os direitos reservados.</p>
-        <div class="attribution-badge">
-          <span>Desenvolvido por</span>
-          <a href="https://gems.tec.br/" target="_blank" rel="noopener noreferrer" title="G&amp;Ms Soluções Tecnológicas">
-            G&amp;Ms Soluções Tecnológicas
-          </a>
-        </div>
-      </div>
-    </div>
+  <footer class="footer" id="rodape" aria-label="Rodapé">
+    <div class="container footer-grid"><div class="footer-brand"><a href="#hero" aria-label="Conte &amp; Lucre — voltar ao início"><img src="assets/logo/full_logo_white.svg" alt="Conte &amp; Lucre" width="190" height="55" loading="lazy"></a><p>Gestão financeira com propósito, clareza e proximidade para empresas que querem decidir melhor.</p><a class="footer-cta" href="#diagnostico">Solicitar diagnóstico ↗</a></div><nav class="footer-column" aria-label="Navegação do rodapé"><h2>Navegação</h2><ul><li><a href="#sobre">Sobre</a></li><li><a href="#solucoes">Soluções</a></li><li><a href="#metodo">Método</a></li><li><a href="#lideranca">Sócios</a></li><li><a href="#insights">Conteúdos</a></li><li><a href="#depoimentos">Depoimentos</a></li></ul></nav><div class="footer-column footer-channels"><h2>Canais de atendimento</h2><address><a href="https://wa.me/5527998844331" target="_blank" rel="noopener noreferrer"><small>WhatsApp</small>+55 (27) 99884-4331</a><a href="mailto:conteelucre@gmail.com"><small>E-mail</small>conteelucre@gmail.com</a><a href="https://www.instagram.com/conteelucre/" target="_blank" rel="noopener noreferrer"><small>Instagram</small>@conteelucre</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Venda+Nova+do+Imigrante+ES" target="_blank" rel="noopener noreferrer"><small>Localização</small>Venda Nova do Imigrante — ES</a></address></div></div>
+    <div class="container footer-legal"><p>© 2026 Conte &amp; Lucre Ltda. — CNPJ 50.130.391/0001-37</p><p>Desenvolvido por <a href="https://gems.tec.br/" target="_blank" rel="noopener noreferrer">G&amp;Ms Soluções Tecnológicas</a></p></div>
   </footer>
 
-  <!-- ============================================================
-       BOTÃO FLUTUANTE WHATSAPP CONCIERGE
-       ============================================================ -->
-  <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20conversa%20estrat%C3%A9gica%20com%20a%20Lumina." target="_blank" rel="noopener noreferrer" class="floating-whatsapp" id="btnFloatingWhatsApp" aria-label="Fale conosco no WhatsApp">
-    <div class="whatsapp-icon-circle">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  <dialog class="gallery-dialog" id="contentGallery" aria-labelledby="galleryTitle">
+    <div class="gallery-shell">
+      <div class="gallery-header"><div><span id="galleryTheme"></span><h2 id="galleryTitle">Conteúdo</h2></div><button class="gallery-close" type="button" aria-label="Fechar galeria">×</button></div>
+      <div class="gallery-body"><div class="gallery-swiper swiper" data-gallery-swiper><div class="swiper-wrapper"></div><button class="gallery-prev" type="button" aria-label="Página anterior">←</button><button class="gallery-next" type="button" aria-label="Próxima página">→</button><div class="gallery-pagination" aria-label="Selecione uma página"></div><p class="gallery-counter" aria-live="polite"></p></div><div class="gallery-caption"><p id="gallerySummary"></p><a href="https://www.instagram.com/conteelucre/" target="_blank" rel="noopener noreferrer">Acompanhar @conteelucre ↗</a></div></div>
     </div>
-    <span>Falar no WhatsApp</span>
-  </a>
+  </dialog>
 
-  <!-- Script Principal -->
+  <a class="floating-whatsapp" href="https://wa.me/5527998844331?text=Ol%C3%A1!%20Conheci%20a%20Conte%20%26%20Lucre%20pelo%20site%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer" aria-label="Falar com a Conte &amp; Lucre pelo WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.79a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88M20.46 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.31-1.65a11.88 11.88 0 0 0 5.68 1.45c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.23-6.17-3.48-8.41z"/></svg><span>WhatsApp</span></a>
   <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>

@@ -1,90 +1,28 @@
 :root {
-  /* ============================================================
-     PALETA DE CORES PRINCIPAL (CUSTOMIZE AQUI PARA SEU CLIENTE)
-     ============================================================ */
-  --color-primary: #b08a5a;             /* Cor de destaque principal / Ouro ou Accent */
-  --color-primary-hover: #c49d6c;       /* Estado hover do botão e links */
-  --color-primary-light: #e6d3ba;       /* Tom claro para badges e acentos sutis */
-  --color-primary-bg: rgba(176, 138, 90, 0.08);     /* Fundo suave com transparência */
-  --color-primary-border: rgba(176, 138, 90, 0.28); /* Bordas elegantes de cartões */
-  --color-primary-glow: rgba(176, 138, 90, 0.35);   /* Glow de foco e sombra de botões */
-
-  --color-secondary: #755535;          /* Tom de apoio (madeira/bronze/navy) */
-  --color-secondary-dark: #422d1b;     /* Tom escuro de contraste */
-
-  /* Aliases retrocompatíveis */
-  --color-gold: var(--color-primary);
-  --color-gold-hover: var(--color-primary-hover);
-  --color-gold-light: var(--color-primary-light);
-  --color-gold-bg: var(--color-primary-bg);
-  --color-gold-border: var(--color-primary-border);
-  --color-gold-glow: var(--color-primary-glow);
-  --color-wood: var(--color-secondary);
-  --color-wood-dark: var(--color-secondary-dark);
-
-  /* ============================================================
-     SUPERFÍCIES ESCURAS (HERO, FOOTER, BANNERS PREMIUM)
-     ============================================================ */
-  --bg-dark: #0e0d0c;
-  --bg-dark-surface: #171614;
-  --bg-dark-surface-elevated: #21201c;
-  --text-dark-theme: #fcfbf9;
-  --text-dark-theme-muted: #a6a198;
-  --border-dark-theme: rgba(255, 255, 255, 0.08);
-
-  /* ============================================================
-     SUPERFÍCIES CLARAS (CONTEÚDO PRINCIPAL, SERVIÇOS & EQUIPE)
-     ============================================================ */
-  --bg-light: #f9f8f5;
-  --bg-light-surface: #ffffff;
-  --bg-light-surface-muted: #f2eee9;
-  --text-light-theme: #1a1816;
-  --text-light-theme-muted: #615c54;
-  --border-light-theme: rgba(176, 138, 90, 0.18);
-
-  /* ============================================================
-     TIPOGRAFIA EDITORIAL E MODERNA
-     ============================================================ */
-  --font-serif: 'Cormorant Garamond', 'Didot', 'Playfair Display', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: var(--font-serif);
-  --font-body: var(--font-sans);
-
-  /* ============================================================
-     TAMANHOS DE FONTE FLUIDOS COM CLAMP()
-     ============================================================ */
-  --fs-hero-title: clamp(2.75rem, 5.5vw + 1rem, 5.75rem);
-  --fs-hero-sub: clamp(1.15rem, 1.8vw + 0.5rem, 1.85rem);
-  --fs-section-title: clamp(2.1rem, 3.8vw + 0.8rem, 3.6rem);
-  --fs-section-subtitle: clamp(0.85rem, 1vw + 0.3rem, 1.05rem);
-  --fs-card-title: clamp(1.25rem, 1.6vw + 0.4rem, 1.65rem);
-  --fs-body: clamp(0.95rem, 0.9vw + 0.25rem, 1.125rem);
-  --fs-small: 0.875rem;
-  --fs-badge: 0.78rem;
-
-  /* ============================================================
-     ESPAÇAMENTOS E LAYOUT
-     ============================================================ */
-  --container-max-width: 1320px;
-  --container-padding: clamp(1.25rem, 4vw, 3.5rem);
-  --section-padding: clamp(4.5rem, 8vw, 8.5rem);
-
-  /* ============================================================
-     BORDAS E ELEVAÇÕES (SOMBRAS SUAVES)
-     ============================================================ */
-  --radius-sm: 4px;
-  --radius-md: 10px;
-  --radius-lg: 20px;
-  --radius-full: 9999px;
-
-  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
-  --shadow-card: 0 12px 35px rgba(28, 24, 20, 0.08);
-  --shadow-hover: 0 20px 45px rgba(176, 138, 90, 0.16);
-  --shadow-dark: 0 16px 40px rgba(0, 0, 0, 0.45);
-
-  /* ============================================================
-     TRANSIÇÕES E CURVAS BEZIER SUAVIZADAS
-     ============================================================ */
-  --transition-smooth: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-fast: all 0.22s ease;
+  --color-primary: #00a896;
+  --color-primary-hover: #008f80;
+  --color-primary-bright: #35cfd9;
+  --color-accent: #d4af37;
+  --bg-dark: #16191e;
+  --bg-dark-deep: #0d1014;
+  --bg-dark-soft: #20252c;
+  --bg-light: #f8fafb;
+  --bg-paper: #eef3f3;
+  --surface: #ffffff;
+  --text-dark: #1e232a;
+  --text-muted: #56616c;
+  --text-light: #ffffff;
+  --text-light-muted: #c7d0d8;
+  --border-light: rgba(30, 35, 42, 0.14);
+  --border-dark: rgba(255, 255, 255, 0.14);
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --container: 1240px;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --section-space: clamp(5rem, 9vw, 8.5rem);
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.75rem;
+  --shadow-soft: 0 24px 70px rgba(22, 25, 30, 0.12);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }

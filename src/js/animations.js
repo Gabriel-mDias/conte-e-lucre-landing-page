@@ -5,61 +5,35 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export function initAnimations() {
-  // 1. Inicializa Lenis Smooth Scroll
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    document.querySelector('.hero-media video')?.pause();
+    return null;
+  }
+
   const lenis = new Lenis({
-    duration: 1.2,
+    duration: 1.05,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    orientation: 'vertical',
-    gestureOrientation: 'vertical',
     smoothWheel: true,
-    wheelMultiplier: 1,
-    touchMultiplier: 2,
+    wheelMultiplier: 0.95,
+    touchMultiplier: 1.5,
   });
 
-  // Sincroniza Lenis com o GSAP Ticker
   lenis.on('scroll', ScrollTrigger.update);
-
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
-
+  gsap.ticker.add((time) => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
 
-  // 2. Animações de Revelação por ScrollTrigger
-  const revealElements = document.querySelectorAll('[data-reveal]');
-  
-  revealElements.forEach((el) => {
-    const delay = parseFloat(el.getAttribute('data-delay') || 0);
-    
-    gsap.to(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        toggleActions: 'play none none none',
-      },
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      delay: delay,
+  document.querySelectorAll('[data-reveal]').forEach((element) => {
+    gsap.from(element, {
+      scrollTrigger: { trigger: element, start: 'top 90%', once: true },
+      opacity: 0,
+      y: 24,
+      duration: 0.9,
+      delay: Number(element.dataset.delay || 0),
       ease: 'power3.out',
+      clearProps: 'opacity,transform',
     });
   });
-
-  // 3. Efeito Parallax sutil no Hero Content
-  const heroContent = document.querySelector('.hero-content');
-  if (heroContent) {
-    gsap.to(heroContent, {
-      scrollTrigger: {
-        trigger: '.hero-section',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-      },
-      y: 80,
-      opacity: 0.35,
-      ease: 'none',
-    });
-  }
 
   return lenis;
 }
