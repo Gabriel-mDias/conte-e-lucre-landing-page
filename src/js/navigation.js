@@ -2,51 +2,41 @@ export function initNavigation(lenis) {
   const navbar = document.querySelector('.navbar');
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
-  const allLinks = document.querySelectorAll('a[href^="#"]');
 
-  // 1. Estado da Navbar ao Rolar
-  function handleScroll() {
-    if (window.scrollY > 50) {
-      navbar?.classList.add('scrolled');
-    } else {
-      navbar?.classList.remove('scrolled');
-    }
-  }
+  const closeMenu = () => {
+    menuToggle?.classList.remove('active');
+    navLinks?.classList.remove('active');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+    menuToggle?.setAttribute('aria-label', 'Abrir menu');
+  };
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
+  const updateNavbar = () => navbar?.classList.toggle('scrolled', window.scrollY > 24);
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+  updateNavbar();
 
-  // 2. Toggle do Menu Mobile
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      navLinks.classList.toggle('active');
+  menuToggle?.addEventListener('click', () => {
+    const opening = !navLinks?.classList.contains('active');
+    navLinks?.classList.toggle('active', opening);
+    menuToggle.classList.toggle('active', opening);
+    menuToggle.setAttribute('aria-expanded', String(opening));
+    menuToggle.setAttribute('aria-label', opening ? 'Fechar menu' : 'Abrir menu');
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const selector = link.getAttribute('href');
+      if (!selector || selector === '#') return;
+      const target = document.querySelector(selector);
+      if (!target) return;
+      event.preventDefault();
+      closeMenu();
+      if (lenis) lenis.scrollTo(target, { offset: -68, duration: 1.05 });
+      else target.scrollIntoView({ behavior: 'auto' });
+      history.replaceState(null, '', selector);
     });
-  }
+  });
 
-  // 3. Rolagem Suave para Âncoras com Lenis
-  allLinks.forEach((link) => {
-    link.addEventListener('click', (e) => {
-      const targetId = link.getAttribute('href');
-      if (!targetId || targetId === '#') return;
-
-      const targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        e.preventDefault();
-        
-        // Fecha menu mobile caso esteja aberto
-        menuToggle?.classList.remove('active');
-        navLinks?.classList.remove('active');
-
-        if (lenis) {
-          lenis.scrollTo(targetEl, {
-            offset: -80,
-            duration: 1.2,
-          });
-        } else {
-          targetEl.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
   });
 }

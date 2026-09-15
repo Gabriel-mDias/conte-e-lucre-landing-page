@@ -1,79 +1,36 @@
-/* Tipografia Editorial e Hierarquia Visual */
-
-.font-serif {
-  font-family: var(--font-serif);
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/assets/fonts/cormorant-garamond-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
 }
 
-.font-sans {
-  font-family: var(--font-sans);
-}
-
-.section-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: var(--fs-badge);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--color-gold);
-  margin-bottom: 1rem;
-}
-
-.section-tag::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 1px;
-  background-color: var(--color-gold);
-}
-
-.section-title {
-  font-family: var(--font-serif);
-  font-size: var(--fs-section-title);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.25rem;
-}
-
-.section-subtitle {
-  font-size: var(--fs-body);
-  line-height: 1.7;
-  max-width: 640px;
-}
-
-.text-gold {
-  color: var(--color-gold);
-}
-
-.text-italic {
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/assets/fonts/cormorant-garamond-italic-latin.woff2') format('woff2');
   font-style: italic;
+  font-weight: 500 600;
+  font-display: swap;
 }
 
-/* Modos de Texto por Seção */
-.theme-dark {
-  background-color: var(--bg-dark);
-  color: var(--text-dark-theme);
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
 }
 
-.theme-dark .section-title {
-  color: var(--text-dark-theme);
-}
-
-.theme-dark .section-subtitle {
-  color: var(--text-dark-theme-muted);
-}
-
-.theme-light {
-  background-color: var(--bg-light);
-  color: var(--text-light-theme);
-}
-
-.theme-light .section-title {
-  color: var(--text-light-theme);
-}
-
-.theme-light .section-subtitle {
-  color: var(--text-light-theme-muted);
-}
+body { font-family: var(--font-sans); color: var(--text-dark); }
+h1, h2, h3, blockquote { font-family: var(--font-serif); }
+h1 { font-size: clamp(3.4rem, 7vw, 7rem); font-weight: 500; line-height: 0.91; letter-spacing: -0.045em; }
+h2 { font-size: clamp(2.65rem, 4.8vw, 5rem); font-weight: 500; line-height: 0.98; letter-spacing: -0.035em; }
+h3 { font-size: clamp(1.55rem, 2.2vw, 2rem); line-height: 1.08; }
+p { color: var(--text-muted); }
+em { color: var(--color-primary); font-weight: 500; }
+.section-dark em, .hero em { color: var(--color-primary-bright); }
+.lead { font-size: clamp(1.1rem, 1.4vw, 1.3rem); line-height: 1.65; color: var(--text-dark); }
+.eyebrow { display: inline-flex; align-items: center; gap: .75rem; margin-bottom: 1.35rem; color: #007f73; font-size: .75rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+.eyebrow::before { content: ''; width: 1.75rem; height: 1px; background: currentColor; }
+.eyebrow-light { color: var(--color-primary-bright); }

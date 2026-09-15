@@ -1,170 +1,214 @@
-"""
-Script de Processamento e Otimização de Mídias para Landing Pages.
-- Varre media/logo/ e copia/otimiza SVGs para public/assets/logo/
-- Gera favicon.svg automaticamente a partir do símbolo da marca
-- Varre media/espaco/ (ou media/escritorio/) e converte para WebP/JPG com Lanczos e Unsharp Mask
-- Varre media/equipe/ (ou media/colaboradores/) e converte retratos para WebP com preservação de canal alfa
-- Varre media/video/ (ou media/movies/) e gera hero-poster.webp
+"""Pipeline deterministico de midias da landing page Conte & Lucre 2.0.
+
+Requer Pillow e FFmpeg (direto ou via imageio-ffmpeg). Todas as saidas usadas
+pelo HTML sao recriadas em ``public/assets`` sem deformar os originais.
 """
 
-import os
+from __future__ import annotations
+
+import argparse
 import shutil
+import subprocess
+import tempfile
 from pathlib import Path
-from PIL import Image, ImageFilter, ImageEnhance
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-MEDIA_DIR = BASE_DIR / "media"
-PUBLIC_DIR = BASE_DIR / "public"
-ASSETS_DIR = PUBLIC_DIR / "assets"
-IMAGES_DIR = ASSETS_DIR / "images"
-COLAB_DIR = IMAGES_DIR / "colaboradores"
-LOGO_DIR = ASSETS_DIR / "logo"
-VIDEO_DIR = ASSETS_DIR / "video"
+from PIL import Image, ImageDraw, ImageFilter, ImageOps
 
-def ensure_dirs():
-    for d in [PUBLIC_DIR, ASSETS_DIR, IMAGES_DIR, COLAB_DIR, LOGO_DIR, VIDEO_DIR]:
-        d.mkdir(parents=True, exist_ok=True)
+ROOT = Path(__file__).resolve().parent.parent
+MEDIA = ROOT / "media"
+ASSETS = ROOT / "public" / "assets"
+LOGOS = ASSETS / "logo"
+PEOPLE = ASSETS / "images" / "colaboradores"
+POSTS = ASSETS / "images" / "posts"
+VIDEO = ASSETS / "video"
 
-def process_logos():
-    print("[1/4] Processando e sincronizando logos SVG...")
-    logo_src_dir = MEDIA_DIR / "logo"
-    if not logo_src_dir.exists():
-        print(f"  -> Diretorio {logo_src_dir} nao encontrado. Pulando.")
-        return
 
-    svg_files = list(logo_src_dir.glob("*.svg")) + list(logo_src_dir.glob("*.png"))
-    if not svg_files:
-        print(f"  -> Nenhum logo encontrado em {logo_src_dir}.")
-        return
+def ensure_dirs() -> None:
+    for directory in (LOGOS, PEOPLE, POSTS, VIDEO):
+        directory.mkdir(parents=True, exist_ok=True)
 
-    fav_candidates = []
-    for f in svg_files:
-        dest = LOGO_DIR / f.name
-        shutil.copy2(f, dest)
-        sz_kb = dest.stat().st_size / 1024
-        print(f"  -> Copiado: {f.name} ({sz_kb:.1f} KB)")
-        if any(keyword in f.name.lower() for keyword in ["simbolo", "symbol", "icon", "logo"]):
-            fav_candidates.append(f)
 
-    # Copia o melhor candidato para favicon no root e em assets/logo
-    primary_fav = fav_candidates[0] if fav_candidates else svg_files[0]
-    shutil.copy2(primary_fav, PUBLIC_DIR / "favicon.svg")
-    print(f"  -> Favicon sincronizado: {primary_fav.name} -> public/favicon.svg")
+def sharpen(image: Image.Image) -> Image.Image:
+    return image.filter(ImageFilter.UnsharpMask(radius=1.1, percent=105, threshold=3))
 
-def process_espaco():
-    print("\n[2/4] Processando fotos do espaco/arquitetura...")
-    espaco_dir = MEDIA_DIR / "espaco"
-    if not espaco_dir.exists():
-        espaco_dir = MEDIA_DIR / "escritorio"
-    
-    if not espaco_dir.exists():
-        print("  -> Nenhum diretorio de fotos do espaco encontrado. Pulando.")
-        return
 
-    extensions = ("*.jpg", "*.jpeg", "*.png", "*.webp")
-    photos = []
-    for ext in extensions:
-        photos.extend(espaco_dir.glob(ext))
+def responsive_image(source: Path, output_dir: Path, stem: str, widths: tuple[int, ...], alpha: bool = False) -> None:
+    with Image.open(source) as opened:
+        base = opened.convert("RGBA" if alpha else "RGB")
+        generated: list[int] = []
+        for width in widths:
+            target_width = min(width, base.width)
+            if target_width in generated:
+                continue
+            generated.append(target_width)
+            target_height = round(base.height * target_width / base.width)
+            resized = sharpen(base.resize((target_width, target_height), Image.Resampling.LANCZOS))
+            resized.save(output_dir / f"{stem}-{target_width}.webp", "WEBP", quality=84, method=6, exact=alpha)
 
-    for p in photos:
-        try:
-            with Image.open(p) as im:
-                im_rgb = im.convert("RGB")
-                stem = p.stem.lower().replace(" ", "-")
+        fallback_width = min(max(widths), base.width)
+        fallback_height = round(base.height * fallback_width / base.width)
+        fallback = sharpen(base.resize((fallback_width, fallback_height), Image.Resampling.LANCZOS))
+        extension = "png" if alpha else "jpg"
+        output = output_dir / f"{stem}-{fallback_width}.{extension}"
+        if alpha:
+            fallback.save(output, "PNG", optimize=True, compress_level=9)
+        else:
+            fallback.save(output, "JPEG", quality=86, optimize=True, progressive=True)
+        print(f"  -> {stem}: {', '.join(map(str, generated))} px + fallback {extension.upper()}")
 
-                # Se a imagem tiver dimensao menor que 1200px, aplica upscale suave
-                w, h = im_rgb.size
-                if w < 1200:
-                    scale = 2
-                    im_up = im_rgb.resize((w * scale, h * scale), Image.Resampling.LANCZOS)
-                    im_sharp = im_up.filter(ImageFilter.UnsharpMask(radius=2, percent=130, threshold=3))
-                    enhancer = ImageEnhance.Contrast(im_sharp)
-                    im_final = enhancer.enhance(1.04)
-                else:
-                    im_final = im_rgb
 
-                out_webp = IMAGES_DIR / f"{stem}.webp"
-                out_jpg = IMAGES_DIR / f"{stem}.jpg"
+def process_logos() -> None:
+    print("[1/4] Logos")
+    source_dir = MEDIA / "logo"
+    for source in sorted(source_dir.glob("*")):
+        if source.suffix.lower() in {".svg", ".png"}:
+            shutil.copy2(source, LOGOS / source.name)
+    primary = source_dir / "full_logo.svg"
+    if primary.exists():
+        shutil.copy2(primary, ROOT / "public" / "favicon.svg")
 
-                im_final.save(out_webp, "WEBP", quality=88, method=6)
-                im_final.save(out_jpg, "JPEG", quality=90, optimize=True)
+    # A assinatura usada na navegacao vem da faixa tipografica inferior da
+    # marca oficial. O recorte proporcional mantem a geracao reproduzivel.
+    raster = source_dir / "full_logo.png"
+    if not raster.exists():
+        raise FileNotFoundError(f"Marca oficial ausente: {raster}")
+    with Image.open(raster) as opened:
+        logo = opened.convert("RGBA")
+        width, height = logo.size
+        wordmark_band = logo.crop((0, round(height * 0.775), width, round(height * 0.925)))
+        alpha_box = wordmark_band.getchannel("A").getbbox()
+        if not alpha_box:
+            raise RuntimeError("Nao foi possivel localizar a assinatura na marca oficial")
+        left, top, right, bottom = alpha_box
+        padding = max(6, round(height * 0.008))
+        signature = wordmark_band.crop(
+            (max(0, left - padding), max(0, top - padding), min(width, right + padding), min(wordmark_band.height, bottom + padding))
+        )
+        signature.save(LOGOS / "logo-signature.png", "PNG", optimize=True, compress_level=9)
+        signature.save(LOGOS / "logo-signature.webp", "WEBP", quality=92, method=6, exact=True)
+        print(f"  -> logo-signature: {signature.width}x{signature.height} px (PNG + WebP)")
 
-                sz_webp = out_webp.stat().st_size / 1024
-                print(f"  -> {stem}.webp gerado ({im_final.size[0]}x{im_final.size[1]}, {sz_webp:.1f} KB)")
-        except Exception as e:
-            print(f"  -> Erro ao processar {p.name}: {e}")
 
-def process_equipe():
-    print("\n[3/4] Processando fotos dos colaboradores/especialistas...")
-    equipe_dir = MEDIA_DIR / "equipe"
-    if not equipe_dir.exists():
-        equipe_dir = MEDIA_DIR / "colaboradores"
+def process_people() -> None:
+    print("[2/4] Socios")
+    jobs = (
+        (MEDIA / "equipe" / "vanessa" / "vanessa_1.png", "vanessa", True),
+        (MEDIA / "equipe" / "ruan" / "ruan_1.png", "ruan", True),
+    )
+    for source, stem, alpha in jobs:
+        if not source.exists():
+            raise FileNotFoundError(f"Midia obrigatoria ausente: {source}")
+        responsive_image(source, PEOPLE, stem, (480, 720, 1080), alpha=alpha)
 
-    if not equipe_dir.exists():
-        print("  -> Nenhum diretorio de equipe encontrado. Pulando.")
-        return
+    with Image.open(MEDIA / "equipe" / "time_completo" / "time_completo.png") as opened:
+        duo = opened.convert("RGBA")
+        alpha_box = duo.getchannel("A").getbbox()
+        if not alpha_box:
+            raise RuntimeError("A composicao dos socios nao possui area visivel")
+        duo = duo.crop(alpha_box)
 
-    # Busca em subpastas ou diretamente
-    candidates = list(equipe_dir.rglob("*.png")) + list(equipe_dir.rglob("*.webp")) + list(equipe_dir.rglob("*.jpg"))
-    for c in candidates:
-        if "cutout" in c.name.lower() or c.parent != equipe_dir or len(candidates) <= 10:
-            try:
-                with Image.open(c) as im:
-                    im_rgba = im.convert("RGBA")
-                    # Extrai o nome limpo
-                    slug = c.stem.lower().replace("-cutout-web", "").replace("-cutout", "").replace(" ", "-")
-                    # Se tiver numero ou pasta mae descritiva
-                    if c.parent != equipe_dir:
-                        slug = c.parent.name.lower().replace(" ", "-")
+        # Quadro 4:5 com margens de seguranca para rostos, ombros e maos. A
+        # escala privilegia troncos e remove o vazio que existia no canvas.
+        canvas_size = (1080, 1350)
+        safe_size = (1030, 1310)
+        duo.thumbnail(safe_size, Image.Resampling.LANCZOS)
+        portrait_canvas = Image.new("RGB", canvas_size, "#dcebea")
+        x = (canvas_size[0] - duo.width) // 2
+        y = canvas_size[1] - duo.height
+        portrait_canvas.paste(duo, (x, y), duo)
+        portrait_canvas = sharpen(portrait_canvas)
+        for target_width in (480, 720, 1080):
+            target = portrait_canvas.resize((target_width, round(target_width * 5 / 4)), Image.Resampling.LANCZOS)
+            target.save(PEOPLE / f"socios-{target_width}.webp", "WEBP", quality=84, method=6)
+        portrait_canvas.save(PEOPLE / "socios-1080.jpg", "JPEG", quality=88, optimize=True, progressive=True)
+        canvas = Image.new("RGB", (1200, 630), "#dcebea")
+        ImageDraw.Draw(canvas).ellipse((735, -210, 1260, 315), outline="#8ac9c3", width=2)
+        og_duo = duo.copy()
+        og_duo.thumbnail((1050, 760), Image.Resampling.LANCZOS)
+        canvas.paste(og_duo, ((1200 - og_duo.width) // 2, 630 - og_duo.height), og_duo)
+        canvas.save(PEOPLE / "socios-og.jpg", "JPEG", quality=88, optimize=True, progressive=True)
+        print("  -> socios: 4:5 reenquadrado (480/720/1080 WebP + JPG) e OG 1200x630")
 
-                    dest_webp = COLAB_DIR / f"{slug}.webp"
-                    dest_png = COLAB_DIR / f"{slug}.png"
 
-                    im_rgba.save(dest_webp, "WEBP", quality=92, method=6)
-                    im_rgba.save(dest_png, "PNG", optimize=True)
+def process_posts() -> None:
+    print("[3/4] Posts")
+    sources = sorted((MEDIA / "posts").glob("post */post_*.*"))
+    sources = [item for item in sources if item.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"}]
+    if len(sources) != 11:
+        raise RuntimeError(f"Esperadas 11 paginas de posts; encontradas {len(sources)}")
+    for source in sources:
+        with Image.open(source) as opened:
+            original = opened.convert("RGB")
+            # Todas as paginas ficam completas dentro de um quadro 4:5. O
+            # fundo neutro absorve pequenas diferencas de proporcao sem crop.
+            normalized = Image.new("RGB", (1080, 1350), "#f4f1ec")
+            contained = ImageOps.contain(original, normalized.size, Image.Resampling.LANCZOS)
+            normalized.paste(contained, ((1080 - contained.width) // 2, (1350 - contained.height) // 2))
+            normalized = sharpen(normalized)
+            for target_width in (540, 1080):
+                target = normalized.resize((target_width, round(target_width * 5 / 4)), Image.Resampling.LANCZOS)
+                target.save(POSTS / f"{source.stem}-{target_width}.webp", "WEBP", quality=84, method=6)
+            normalized.save(POSTS / f"{source.stem}-1080.jpg", "JPEG", quality=86, optimize=True, progressive=True)
+            print(f"  -> {source.stem}: quadro 4:5 completo (540/1080 WebP + JPG)")
 
-                    sz_orig = c.stat().st_size / 1024
-                    sz_webp = dest_webp.stat().st_size / 1024
-                    red = ((1 - sz_webp / sz_orig) * 100) if sz_orig > 0 else 0
-                    print(f"  -> {slug}.webp gerado ({sz_orig:.1f} KB -> {sz_webp:.1f} KB, -{red:.0f}%)")
-            except Exception as e:
-                print(f"  -> Erro ao processar {c.name}: {e}")
 
-def process_video():
-    print("\n[4/4] Sincronizando video de hero e gerando poster...")
-    video_dir = MEDIA_DIR / "video"
-    if not video_dir.exists():
-        video_dir = MEDIA_DIR / "movies"
+def ffmpeg_executable() -> str:
+    system = shutil.which("ffmpeg")
+    if system:
+        return system
+    try:
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except ImportError as error:
+        raise RuntimeError("Instale imageio-ffmpeg para gerar o poster da hero") from error
 
-    if not video_dir.exists():
-        print("  -> Nenhum diretorio de video encontrado. Pulando.")
-        return
 
-    mp4_files = list(video_dir.glob("*.mp4"))
-    for v in mp4_files:
-        dest = VIDEO_DIR / v.name
-        shutil.copy2(v, dest)
-        sz_mb = dest.stat().st_size / (1024 * 1024)
-        print(f"  -> Video {v.name} copiado para {dest} ({sz_mb:.1f} MB)")
+def process_video() -> None:
+    print("[4/4] Video e poster")
+    source = MEDIA / "video" / "hero_alternativa.mp4"
+    if not source.exists():
+        raise FileNotFoundError(f"Video obrigatorio ausente: {source}")
+    ffmpeg = ffmpeg_executable()
+    desktop = VIDEO / "hero-desktop.mp4"
+    mobile = VIDEO / "hero-mobile.mp4"
+    common = ["-c:v", "libx264", "-preset", "medium", "-crf", "23", "-pix_fmt", "yuv420p", "-movflags", "+faststart", "-an"]
+    subprocess.run([ffmpeg, "-y", "-i", str(source), "-vf", "scale=1280:720:flags=lanczos", *common, str(desktop)], check=True)
+    subprocess.run(
+        [ffmpeg, "-y", "-i", str(source), "-vf", "crop=ih*9/16:ih:(iw-ow)/2:0,scale=720:1280:flags=lanczos", *common, str(mobile)],
+        check=True,
+    )
 
-    # Gerar poster se existir foto de espaco
-    poster_dest = VIDEO_DIR / "hero-poster.webp"
-    if not poster_dest.exists():
-        fotos = list(IMAGES_DIR.glob("*.webp")) + list(IMAGES_DIR.glob("*.jpg"))
-        if fotos:
-            with Image.open(fotos[0]) as im:
-                im_rgb = im.convert("RGB")
-                w, h = im_rgb.size
-                target_h = int(w * 9 / 16)
-                top = max(0, (h - target_h) // 3)
-                cropped = im_rgb.crop((0, top, w, min(h, top + target_h)))
-                cropped.save(poster_dest, "WEBP", quality=85)
-                print(f"  -> Poster do Hero gerado em {poster_dest.name}")
+    with tempfile.TemporaryDirectory() as temp_dir:
+        for video, name, size in (
+            (desktop, "hero-desktop-poster.webp", (1280, 720)),
+            (mobile, "hero-mobile-poster.webp", (720, 1280)),
+        ):
+            frame = Path(temp_dir) / f"{name}.jpg"
+            subprocess.run(
+                [ffmpeg, "-y", "-ss", "00:00:01.000", "-i", str(video), "-frames:v", "1", "-q:v", "2", str(frame)],
+                check=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+            with Image.open(frame) as opened:
+                poster = ImageOps.fit(opened.convert("RGB"), size, Image.Resampling.LANCZOS)
+                poster.save(VIDEO / name, "WEBP", quality=82, method=6)
+    print("  -> hero desktop 1280x720 + mobile 720x1280, sem audio, faststart e posters")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Processa as midias da Conte & Lucre 2.0")
+    parser.add_argument("--only", choices=("logos", "people", "posts", "video"))
+    selected = parser.parse_args().only
+    ensure_dirs()
+    tasks = {"logos": process_logos, "people": process_people, "posts": process_posts, "video": process_video}
+    if selected:
+        tasks[selected]()
+    else:
+        for task in tasks.values():
+            task()
+    print("Processamento concluido.")
+
 
 if __name__ == "__main__":
-    ensure_dirs()
-    process_logos()
-    process_espaco()
-    process_equipe()
-    process_video()
-    print("\nProcessamento e sincronizacao de midias concluidos com exito!")
+    main()

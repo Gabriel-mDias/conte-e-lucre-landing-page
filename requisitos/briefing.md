@@ -2,6 +2,25 @@
 
 Documento de alinhamento estratégico e diretrizes de desenvolvimento para a landing page de alta conversão da **Conte & Lucre**.
 
+## Direção aprovada para a revisão premium — setembro de 2026
+
+- **Direção visual:** editorial híbrida, combinando superfícies claras inspiradas no Instagram com hero, método e conversão em grafite.
+- **Política de mídia:** presença autêntica de Vanessa e dos posts oficiais como núcleo da marca; fotos Pexels licenciadas apenas como apoio contextual.
+- **Conteúdo:** reestruturação rigorosa da narrativa, sem métricas inventadas, garantias absolutas, prazos rígidos ou resultados financeiros prometidos.
+- **Conversão:** diagnóstico inicial pelo WhatsApp, com formulário local e explicação explícita de que os dados só seguem após confirmação do visitante.
+- **Identidade preservada:** Cormorant Garamond, Plus Jakarta Sans, teal `#00A896`, grafite `#16191E`, gelo `#F8FAFB` e dourado `#D4AF37` restrito a detalhes.
+- **Experiência:** hierarquia mais curta, contraste WCAG AA, movimento reduzido respeitado e mídia responsiva sem deformações.
+
+### Refinamentos de hero, fundadora e rodapé
+
+- **Hero fullscreen:** ocupa a viewport real com `100svh/100dvh`, sem limite máximo no desktop nem altura fixa no mobile. Em telas excepcionalmente baixas, pode crescer para acomodar conteúdo sem cortes.
+- **Vídeo da hero:** mantém poster, autoplay silencioso e `object-fit: cover`, agora com opacidade integral. O contraste vem de um scrim localizado atrás do texto e de um degradê inferior suave, com enquadramentos próprios para desktop, tablet, mobile vertical e mobile horizontal.
+- **Conteúdo acima da dobra:** tipografia e espaçamentos fluidos mantêm headline, apoio e CTAs na primeira viewport nos tamanhos de referência, preservando a pausa do vídeo em `prefers-reduced-motion`.
+- **Retrato da fundadora:** uso exclusivo de `media/equipe/vanessa/vanessa_1.png` na seção de Vanessa. O pipeline preserva transparência e gera `vanessa_1_cutout.webp` com fallback PNG, sem a regra de nomes que sobrescrevia retratos da mesma pasta.
+- **Composição da Vanessa:** retrato recortado sobre cenário editorial da paleta Conte & Lucre, com formas discretas e enquadramento responsivo; a hero permanece centrada no vídeo.
+- **Rodapé:** grade responsiva com marca, navegação, três soluções e canais de atendimento. WhatsApp, e-mail, Instagram e localização usam ícones SVG lineares acessíveis; a faixa legal preserva copyright, CNPJ e cidade.
+- **Crédito de desenvolvimento:** “Desenvolvido por G&Ms Soluções Tecnológicas”, vinculado a `https://gems.tec.br/` e tratado de forma equivalente ao projeto Essenza.
+
 ---
 
 ## 1. Dados Básicos da Empresa / Marca
@@ -56,11 +75,11 @@ Documento de alinhamento estratégico e diretrizes de desenvolvimento para a lan
 2. **Hero Section (Impacto Imediato)**:
    - Badge: *"Consultoria & Assessoria Financeira Estratégica"*
    - Headline: *"Sua empresa está progredindo ou só movimentando dinheiro?"*
-   - Subheadline: *"Assumimos a rotina financeira e estruturamos seus processos para que você tenha controle absoluto, lucro previsível e tempo livre."*
+   - Subheadline: *"Estruturamos processos e assumimos a rotina financeira para você decidir com mais clareza, proteger seu tempo e compreender seus números."*
    - CTA Primário: *"Agendar Diagnóstico Gratuito"* (WhatsApp)
    - CTA Secundário: *"Conhecer Nossos Serviços"* (Âncora `#pilares`)
 3. **Barra de Métricas & Credibilidade**:
-   - Indicadores de impacto (Processos estruturados, economia gerada, horas operacionais poupadas, 100% de sigilo).
+   - Compromissos qualitativos de credibilidade: processos organizados, decisões com contexto e parceria confidencial.
 4. **Sobre a Conte & Lucre / Liderança**:
    - Apresentação de Vanessa Rezende Pianzola e sócios.
    - O diferencial de aliar técnica analítica com propósito humano e alinhamento familiar.

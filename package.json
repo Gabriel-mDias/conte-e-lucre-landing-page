@@ -1,11 +1,12 @@
 {
   "name": "sample-landing-page",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
+    "verify": "node scripts/verify_page.mjs",
     "preview": "vite preview --open",
     "serve": "npm run build && vite preview --open",
     "process-media": "python scripts/process_media.py"
@@ -13,9 +14,10 @@
   "dependencies": {
     "gsap": "^3.12.5",
     "lenis": "^1.1.20",
-    "swiper": "^11.2.5"
+    "swiper": "^12.1.2"
   },
   "devDependencies": {
+    "playwright-core": "^1.55.0",
     "vite": "^6.2.0"
   }
 }
